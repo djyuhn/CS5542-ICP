@@ -11,7 +11,7 @@ object SparkSortWords {
   def main(args: Array[String]) {
 
     System.setProperty("hadoop.home.dir", "C:\\winutils")
-    
+
     val sparkConf = new SparkConf().setAppName("SparkSortWords").setMaster("local[*]")
     val sc=new SparkContext(sparkConf)
 
@@ -24,6 +24,7 @@ object SparkSortWords {
       .groupBy(word => {
         word.charAt(0)
       })
+      .sortByKey()
       .cache()
 
     val output = groupedWords.collect()
