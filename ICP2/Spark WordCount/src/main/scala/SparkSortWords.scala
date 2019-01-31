@@ -10,8 +10,6 @@ object SparkSortWords {
 
   def main(args: Array[String]) {
 
-    System.setProperty("hadoop.home.dir","C:\\Users\\Manikanta\\Documents\\UMKC Subjects\\PB\\hadoopforspark");
-
     val sparkConf = new SparkConf().setAppName("SparkSortWords").setMaster("local[*]")
     val sc=new SparkContext(sparkConf)
 
