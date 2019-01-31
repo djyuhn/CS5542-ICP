@@ -5,7 +5,7 @@ For ICP2 the task is to group the words in a given text file based on their star
 
 ## Code
 
-![GroupByFirstChar](C:\dev\Repositories\CS5542-ICP\docs\ICP2\GroupByFirstChar.gif)
+![GroupByFirstChar](../docs/ICP2/GroupByFirstChar.gif)
 
 
 
