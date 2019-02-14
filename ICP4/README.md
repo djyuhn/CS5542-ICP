@@ -13,27 +13,27 @@ For ICP4 the task is to write a Tensor Flow program, implementing a CNN model fo
 
 ### Optimizers - Default
 
-![ICP4-Optimizers-Distributions](..\docs\ICP4\ICP4-Optimizers-Distributions.png)
+![ICP4-Optimizers-Distributions](../docs/ICP4/ICP4-Optimizers-Distributions.png)
 
-![ICP4-Optimizers-Histograms](..\docs\ICP4\ICP4-Optimizers-Histograms.png)
+![ICP4-Optimizers-Histograms](../docs/ICP4/ICP4-Optimizers-Histograms.png)
 
-![ICP4-Optimizers-Scalars_Step](..\docs\ICP4\ICP4-Optimizers-Scalars_Step.png)
+![ICP4-Optimizers-Scalars_Step](../docs/ICP4/ICP4-Optimizers-Scalars_Step.png)
 
 
 
 ### Optimizers - CNN Filter Size 16, 36, 128 on 3 Layers
 
-![ICP4-Optimizer-3layers-Scalars](..\docs\ICP4\ICP4-Optimizer-3layers-Scalars.png)
+![ICP4-Optimizer-3layers-Scalars](../docs/ICP4/ICP4-Optimizer-3layers-Scalars.png)
 
-![ICP4-Optimizer-3layers-Histograms](..\docs\ICP4\ICP4-Optimizer-3layers-Histograms.png)
+![ICP4-Optimizer-3layers-Histograms](../docs/ICP4/ICP4-Optimizer-3layers-Histograms.png)
 
-![ICP4-Optimizer-3layers-Distributions](..\docs\ICP4\ICP4-Optimizer-3layers-Distributions.png)
+![ICP4-Optimizer-3layers-Distributions](../docs/ICP4/ICP4-Optimizer-3layers-Distributions.png)
 
 
 
 ### AdamOptimizers - 2Layer, vs 3Layer-16-36-128 vs 3Layer-72-144-288
 
-![ICP4-AdamOptimizers-Scalars](..\docs\ICP4\ICP4-AdamOptimizers-Scalars.png)
+![ICP4-AdamOptimizers-Scalars](../docs/ICP4/ICP4-AdamOptimizers-Scalars.png)
 
 
 
