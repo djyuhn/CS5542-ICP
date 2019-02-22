@@ -8,15 +8,15 @@ from random import shuffle #only shuffles the array along the first axis of a mu
 from ClassficationFuncs import create_train_data, create_test_labeled_data, label_return
 
 LR = 1e-3
-MODEL_NAME = 'Caltech100-3Category-{}-{}.model'.format(LR, '2conv-basic') # just so we remember which save
+MODEL_NAME = 'djyuhn_project_model'.format(LR, '2conv-basic') # just so we remember which save
 
-data_dir = 'data\\'
+data_dir = 'data_project\\'
 train_dir = os.path.join(data_dir, 'train')
 test_dir = os.path.join(data_dir, 'test')
 IMG_SIZE = 299
 
 #list of categories in array format
-CATEGORIES = ['accordion','airplanes','anchor']
+CATEGORIES = ['building','city','hill', 'lake']
 NUM_CATEGORIES = len(CATEGORIES)
 print (NUM_CATEGORIES)
 

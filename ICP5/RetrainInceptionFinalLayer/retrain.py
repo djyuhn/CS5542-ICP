@@ -99,7 +99,7 @@ MODEL_INPUT_HEIGHT = 299
 MODEL_INPUT_DEPTH = 3
 JPEG_DATA_TENSOR_NAME = 'DecodeJpeg/contents:0'
 RESIZED_INPUT_TENSOR_NAME = 'ResizeBilinear:0'
-MAX_NUM_IMAGES_PER_CLASS = 20#2 ** 27 - 1  # ~134M
+MAX_NUM_IMAGES_PER_CLASS = 10#2 ** 27 - 1  # ~134M
 
 
 def create_image_lists(image_dir, testing_percentage, validation_percentage):
@@ -908,29 +908,30 @@ def main(_):
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
 
+  dataPath = "data_project/flickr_categorized_images"
 
   parser.add_argument(
       '--image_dir',
       type=str,
-      default= "caltech101/data/train", #'data/flower_photos',
+      default= dataPath + "/train",
       help='Path to folders of labeled images.'
   )
   parser.add_argument(
       '--output_graph',
       type=str,
-      default='caltech101/data/output_graph.pb',
+      default= dataPath + '/output_graph.pb',
       help='Where to save the trained graph.'
   )
   parser.add_argument(
       '--output_labels',
       type=str,
-      default='caltech101/data/output_labels.txt',
+      default= dataPath + '/output_labels.txt',
       help='Where to save the trained graph\'s labels.'
   )
   parser.add_argument(
       '--summaries_dir',
       type=str,
-      default='caltech101/data/retrain_logs',
+      default= dataPath + '/retrain_logs',
       help='Where to save summary logs for TensorBoard.'
   )
   parser.add_argument(
@@ -1004,7 +1005,7 @@ if __name__ == '__main__':
   parser.add_argument(
       '--model_dir',
       type=str,
-      default='caltech101/data/inception',
+      default= dataPath + '/inception',
       help="""\
       Path to classify_image_graph_def.pb,
       imagenet_synset_to_human_label_map.txt, and
@@ -1014,7 +1015,7 @@ if __name__ == '__main__':
   parser.add_argument(
       '--bottleneck_dir',
       type=str,
-      default='caltech101/data/bottlenecks',
+      default= dataPath + '/bottlenecks',
       help='Path to cache bottleneck layer values as files.'
   )
   parser.add_argument(

@@ -11,10 +11,10 @@ import tensorflow as tf
  am sure there's better way to do this .......'''
 
 def label_img(word_label):
-    if word_label == 'accordion': return [1,0,0,0,0,0,0,0,0,0,0,0]
-    elif word_label == 'airplanes': return [0,1,0,0,0,0,0,0,0,0,0,0]
-    elif word_label == 'anchor': return [0,0,1,0,0,0,0,0,0,0,0,0]
-    # elif word_label == 'Common Chickweed': return [0,0,0,1,0,0,0,0,0,0,0,0]
+    if word_label == 'building': return [1,0,0,0,0,0,0,0,0,0,0,0]
+    elif word_label == 'city': return [0,1,0,0,0,0,0,0,0,0,0,0]
+    elif word_label == 'hill': return [0,0,1,0,0,0,0,0,0,0,0,0]
+    elif word_label == 'lake': return [0,0,0,1,0,0,0,0,0,0,0,0]
     # elif word_label == 'Common wheat': return [0,0,0,0,1,0,0,0,0,0,0,0]
     # elif word_label == 'Fat Hen': return [0,0,0,0,0,1,0,0,0,0,0,0]
     # elif word_label == 'Loose Silky-bent': return [0,0,0,0,0,0,1,0,0,0,0,0]
@@ -84,13 +84,13 @@ def create_test_unlabeled_data(test_dir,IMG_SIZE):
 # return Indexes of the maximal elements of a array
 def label_return(model_out):
     if np.argmax(model_out) == 0:
-        return 'accordion'
+        return 'building'
     elif np.argmax(model_out) == 1:
-        return 'airplanes'
+        return 'city'
     elif np.argmax(model_out) == 2:
-        return 'anchor'
-    # elif np.argmax(model_out) == 3:
-    #     return 'Common Chickweed'
+        return 'hill'
+    elif np.argmax(model_out) == 3:
+        return 'lake'
     # elif np.argmax(model_out) == 4:
     #     return 'Common wheat'
     # elif np.argmax(model_out) == 5:
