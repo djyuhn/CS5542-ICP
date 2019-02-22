@@ -89,13 +89,13 @@ Final validation accuracy = 55.0% (N=40)
 
 
 
-![Retrain](..\docs\ICP5\Retrain.gif)
+![Retrain](../docs/ICP5/Retrain.gif)
 
 
 
 ### ClassificationCNN
 
-![ClassificationCNN](..\docs\ICP5\ClassificationCNN.gif)
+![ClassificationCNN](../docs/ICP5/ClassificationCNN.gif)
 
 
 
@@ -103,7 +103,7 @@ Final validation accuracy = 55.0% (N=40)
 
 ### Retrain Inception Model
 
-### ![Retrain_Tensorboard](..\docs\ICP5\Retrain_Tensorboard.gif)
+### ![Retrain_Tensorboard](../docs/ICP5/Retrain_Tensorboard.gif)
 
 
 
