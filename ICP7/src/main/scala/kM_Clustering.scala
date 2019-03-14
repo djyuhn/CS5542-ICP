@@ -1,12 +1,14 @@
 import java.io.PrintStream
 
-import org.apache.spark.mllib.clustering.KMeans
-import org.apache.spark.mllib.feature.HashingTF
-import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.spark.SparkConf
 
+/**
+  * @author djyuhn
+  *         3/14/2019
+  */
 object kM_Clustering {
   def main(args: Array[String]): Unit = {
-    System.setProperty("hadoop.home.dir", "D:\\Mayanka Lenevo F Drive\\winutils")
+    System.setProperty("hadoop.home.dir", "C:\\winutils\\")
     val sparkConf = new SparkConf().setAppName("SparkWordCount").setMaster("local[*]")
     val sc = new SparkContext(sparkConf)
 

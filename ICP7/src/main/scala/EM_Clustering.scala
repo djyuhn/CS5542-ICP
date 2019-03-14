@@ -1,15 +1,16 @@
 import java.io.PrintStream
 
-import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.mllib.feature.{HashingTF, IDF}
-import org.apache.spark.mllib.clustering.GaussianMixture
+/**
+  * @author djyuhn
+  *         3/14/2019
+  */
 object EM_Clustering {
   def main(args: Array[String]): Unit = {
-    System.setProperty("hadoop.home.dir", "D:\\Mayanka Lenevo F Drive\\winutils")
+    System.setProperty("hadoop.home.dir", "C:\\winutils\\")
     val sparkConf = new SparkConf().setAppName("SparkWordCount").setMaster("local[*]")
     val sc = new SparkContext(sparkConf)
 
-    val features=sc.textFile("data\\Flickr8k.token.txt")
+    val features =sc.textFile("data\\Flickr8k.token.txt")
       .map(f=>{
         val str=f.replaceAll(",","")
         val ff=f.split(" ")
