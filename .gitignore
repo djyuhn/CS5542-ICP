@@ -255,3 +255,4 @@ dmypy.json
 *.class
 
 # End of https://www.gitignore.io/api/scala,python,pycharm,intellij
+ICP8/.idea

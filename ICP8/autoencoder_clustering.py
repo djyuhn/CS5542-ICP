@@ -29,7 +29,7 @@ from math import sqrt
 # load 20news group data
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.decomposition import TruncatedSVD
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import Normalizer
 
@@ -76,14 +76,17 @@ class Similarity_Dataset_Iterator():
         return (self.matrix.transpose(), self.labels)
     
 def read_NewsGroup_data(similarity):    
-    categories_3NG = ['comp.graphics', 'rec.sport.baseball', 'talk.politics.guns']
+    categories_3NG = ['comp.graphics', 'rec.sport.baseball', 'talk.politics.guns',
+                      'sci.electronics', 'sci.space']
     dataset = fetch_20newsgroups(subset='train', categories=categories_3NG,
                                  shuffle=True, random_state=42)
-    labels = dataset.target[:600]
+    labels = dataset.target[:1200]
     true_k = np.unique(labels).shape[0]
-    vectorizer = TfidfVectorizer(max_df=0.5, max_features=10000,min_df=2,
-                                 stop_words='english',use_idf=True)
-    X = vectorizer.fit_transform(dataset.data[:600])
+    vectorizer = CountVectorizer(max_df =0.5, max_features=10000,min_df=2,
+                                 stop_words='english')
+    # vectorizer = TfidfVectorizer(max_df=0.5, max_features=10000,min_df=2,
+    #                              stop_words='english',use_idf=True)
+    X = vectorizer.fit_transform(dataset.data[:1200])
     return Similarity_Dataset_Iterator(X.toarray(), labels, similarity)
 
 def k_means_(X, n_cluster):
@@ -179,10 +182,10 @@ n_layers = 5 #----------------------------- Number of Neural Networks Layers.
 beta1 = 0.9 #------------------------------ The decay rate 1.  
 beta2 = 0.999 #---------------------------- The decay rate 2.
 learning_rate = (beta1/n_input) #---------- The learning rate.
-stop_learning = 1.35 #--------------------- The stop learning point.
+stop_learning = 1.8 #--------------------- The stop learning point.
 n_batch = math.ceil(sqrt(sqrt(n_input))) #- Number of selection data in per step.
 n_backpro = math.ceil(n_input/n_batch) #--- Number of Backpro in per epoch.
-n_clusters = 3 #--------------------------- Number of clusters.
+n_clusters = 5 #--------------------------- Number of clusters.
 n_diplay = 10 #---------------------------- Number of getting code and runnig the K-Means.
 data_cos, labels_cos = trainSet_cosine.whole_dataset() #------- Allocation of data and labels
 results_cos=[] #--------------------------- A list to keep all NMI scores.
@@ -216,7 +219,7 @@ while epoch == 0 or new_cost >= stop_learning:
     # Save the results after per 10 epochs.    
     if epoch % n_diplay == 0 or new_cost <= stop_learning:
         # Getting embedded codes and running K-Means on them.
-        ae_codes_cos = sess.run(code, feed_dict={x: data_cos, mode_train: False})        
+        ae_codes_cos = sess.run(code, feed_dict={x: data_cos, mode_train: False})
         idx_cos = k_means_(ae_codes_cos, n_clusters)
         ae_nmi_cos = normalized_mutual_info_score(labels_cos, idx_cos)
         results_cos.append(ae_nmi_cos)    
@@ -247,9 +250,9 @@ plt.show()
 
 origin_label_cos = np.array(trainSet_cosine.whole_dataset()[1]).astype(int)
 
-colors = [('c', '1'),('g', '2'),('m','3')]
+colors = [('c', '1'),('g', '2'),('m','3'),('r', '4'),('b', '1')]
 plt.figure(figsize=(14, 5))
-for num in range(3):
+for num in range(5):
     plt.legend()
     plt.subplot(1,2,2)
     plt.scatter([ae_codes_cos[:,0][i] for i in range(len(origin_label_cos)) if origin_label_cos[i] == num],
@@ -260,9 +263,9 @@ for num in range(3):
     plt.legend()
 plt.show()
 
-colors = [('r', '1'),('b', '2'),('y','3')]
+colors = [('r', '1'),('b', '2'),('y','3'),('c','4'),('g','1')]
 plt.figure(figsize=(14, 5))
-for num in range(3):
+for num in range(5):
     plt.legend()
     plt.subplot(1,2,2)
     plt.scatter([ae_codes_cos[:,0][i] for i in range(len(idx_cos)) if idx_cos[i] == num],
